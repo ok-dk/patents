@@ -1,14 +1,13 @@
 // Local settings
-var countryValue = "country",
-    dataValue = "total";
+// var countryValue = "country",
+var countryValue = "Country Name",
+    // dataValue = "total";
+    dataValue = "2012";
 
 var color = d3.scale.linear()
-    .domain([0, 25, 50, 75, 100])
+    // .domain([0, 25, 50, 75, 100])
     .range([
         "#d7191c",
-        "#fdae61",
-        "#ffffbf",
-        "#abdda4",
         "#2b83ba"
     ]);
 
@@ -42,7 +41,7 @@ var cleanPrefix = function(string) {
 };
 
 // Load the data values
-d3.csv("../../_data/data.csv", function(data) {
+d3.csv("../../_data/dataset.csv", function(data) {
 
     // Geodata loaded into the csv scope
     d3.json("assets/data/ne_110m_admin_0_countries_lakes.geojson", function(json) {
@@ -51,19 +50,20 @@ d3.csv("../../_data/data.csv", function(data) {
 
         // data (values) forloop
         for (var i = 0; i < dataLength; i++) {
-            if (data[i]["Country Code"] === "Total") {
-                color.domain([0, data[i][dataValue]])
-            } else {
-                var dataCountry = data[i][countryValue],
-                    cleanedDataValue = cleanPrefix(data[i][dataValue]);
+            if (data[i]["Country Name"] === "United States") {
+                color.domain([0, Math.log(data[i][dataValue])]);
+            }
 
-                // json (geodata) forloop
-                for (var j = 0; j < jsonLength; j++) {
-                    var jsonCountry = json.features[j].properties.name_long;
-                    if (dataCountry == jsonCountry) {
-                        json.features[j].properties.value = cleanedDataValue;
-                        break;
-                    }
+            var dataCountry = data[i][countryValue],
+                // cleanedDataValue = cleanPrefix(Math.log(data[i][dataValue]));
+                cleanedDataValue = Math.log(data[i][dataValue]);
+
+            // json (geodata) forloop
+            for (var j = 0; j < jsonLength; j++) {
+                var jsonCountry = json.features[j].properties.name_long;
+                if (dataCountry == jsonCountry) {
+                    json.features[j].properties.value = cleanedDataValue;
+                    break;
                 }
             }
         }
