@@ -1,15 +1,9 @@
 // Local settings
-// var countryValue = "country",
 var countryValue = "Country Name",
-    // dataValue = "total";
     dataValue = "2012";
 
 var color = d3.scale.linear()
-    // .domain([0, 25, 50, 75, 100])
-    .range([
-        "#d7191c",
-        "#2b83ba"
-    ]);
+    .range(["#d7191c", "#2b83ba"]);
 
 var projection = d3.geo.kavrayskiy7()
     // via https://github.com/d3/d3-geo-projection/
@@ -34,7 +28,7 @@ d3.csv("../../_data/dataset.csv", function(data) {
         var dataLength = data.length,
             jsonLength = json.features.length;
 
-        // data (values) forloop
+        // Data (values) forloop
         for (var i = 0; i < dataLength; i++) {
             var countryData = Math.log(data[i][dataValue]),
                 dataCountry = data[i][countryValue];
@@ -43,7 +37,7 @@ d3.csv("../../_data/dataset.csv", function(data) {
                 color.domain([0, countryData]);
             }
 
-            // json (geodata) forloop
+            // JSON (geodata) forloop
             for (var j = 0; j < jsonLength; j++) {
                 var jsonCountry = json.features[j].properties.name_long;
                 if (dataCountry == jsonCountry) {
