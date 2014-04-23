@@ -1,0 +1,90 @@
+svg {
+    margin-left: auto; margin-right: auto;
+    display: block;
+}
+
+line,
+rect {
+    shape-rendering: crispEdges;
+}
+
+.states {
+    fill: none;  /** Hides TopoJSON artifacts */
+    stroke: #000;
+}
+
+.counties {}
+
+path.state:hover {
+    fill: pink !important;
+    stroke: #000;
+    stroke-width: 1.5px;
+}
+
+path.country:hover {
+    fill: pink !important;
+    stroke: #000;
+    stroke-width: .5px;
+}
+
+/** State chart threshold BEGIN */
+    text {
+        font: 10px sans-serif;
+    }
+
+    .caption {
+        font-weight: bold;
+    }
+
+    .key path {
+        display: none;
+    }
+
+    .key line {
+        stroke: #000;
+        /** shape-rendering: crispEdges; */
+    }
+/** State chart threshold END */
+
+noscript img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/** Bar chart BEGIN */
+body {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.x.axis path {
+    display: none;
+}
+
+rect.bar:hover {
+    fill: orange !important;
+}
+/** Bar chart END */
+
+.divider {
+    stroke: #FFF;
+    opacity: 0.7;
+}
+
+/** Grid lines BEGIN */
+/** http://www.d3noob.org/2013/01/adding-grid-lines-to-d3js-graph.html */
+    .grid .tick {
+        stroke: lightgrey;
+        opacity: 0.7;
+    }
+    .grid path {
+         stroke-width: 0;
+    }
+/** Grid lines END */
