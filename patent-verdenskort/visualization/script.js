@@ -12,7 +12,7 @@ var color = d3.scale.linear()
 var projection = d3.geo.kavrayskiy7()
     // via https://github.com/d3/d3-geo-projection/
     .translate([width/2, height/2])
-    .scale(95); // Revise so it isn't a magic number
+    .scale(150); // Revise so it isn't a magic number
 
 var path = d3.geo.path()
     .projection(projection);

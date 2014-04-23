@@ -1,6 +1,6 @@
 // Universal settings
-var width = 440,
-    height = 400,
+var width = 800,
+    height = 640,
     padding = 30;
 
 var margin = {
