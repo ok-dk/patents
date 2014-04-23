@@ -51,7 +51,9 @@ d3.csv("../../_data/data.csv", function(data) {
 
         // data (values) forloop
         for (var i = 0; i < dataLength; i++) {
-            if (data[i][countryValue] !== "Total") {
+            if (data[i]["Country Code"] === "Total") {
+                color.domain([0, data[i][dataValue]])
+            } else {
                 var dataCountry = data[i][countryValue],
                     cleanedDataValue = cleanPrefix(data[i][dataValue]);
 
