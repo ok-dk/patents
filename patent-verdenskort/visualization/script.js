@@ -26,20 +26,6 @@ var svg = d3.select("body")
         "height": height
     });
 
-// Local helper functions
-// to be moved to chart.js
-var cleanPrefix = function(string) {
-    // Remove any "<", ">" or "~" prefixed to a number value
-    // e.g. d3Helpers.cleanPrefixes(data[i].total);
-    prefix = string.substring(0, 1);
-
-    if (prefix === "<" || prefix === ">" || prefix === "~") {
-        return string.substring(1);
-    } else {
-        return string;
-    }
-};
-
 // Load the data values
 d3.csv("../../_data/dataset.csv", function(data) {
 
@@ -50,19 +36,18 @@ d3.csv("../../_data/dataset.csv", function(data) {
 
         // data (values) forloop
         for (var i = 0; i < dataLength; i++) {
-            if (data[i]["Country Name"] === "United States") {
-                color.domain([0, Math.log(data[i][dataValue])]);
-            }
+            var countryData = Math.log(data[i][dataValue]),
+                dataCountry = data[i][countryValue];
 
-            var dataCountry = data[i][countryValue],
-                // cleanedDataValue = cleanPrefix(Math.log(data[i][dataValue]));
-                cleanedDataValue = Math.log(data[i][dataValue]);
+            if (data[i]["Country Name"] === "United States") {
+                color.domain([0, countryData]);
+            }
 
             // json (geodata) forloop
             for (var j = 0; j < jsonLength; j++) {
                 var jsonCountry = json.features[j].properties.name_long;
                 if (dataCountry == jsonCountry) {
-                    json.features[j].properties.value = cleanedDataValue;
+                    json.features[j].properties.value = countryData;
                     break;
                 }
             }
