@@ -16,7 +16,9 @@ After that, go to <http://localhost:8000/patent-verdenskort/visualization>.
 
 To Do
 -----
-Include working threshold legend.
+- Include working threshold legend
+- Tooltip
+- Responsive layout
 
 
 [thumbnail]: https://github.com/ok-dk/patents/raw/master/patent-verdenskort/visualization/thumbnail.png
