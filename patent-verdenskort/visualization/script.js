@@ -60,7 +60,7 @@ d3.csv("../../_data/dataset.csv", function(data) {
             })
             .style("fill", function(d) {
                 var value = d.properties.value;
-                return value ? color(value) : "#000";
+                return value ? color(value) : "#DDD";
             });
     });
 });
