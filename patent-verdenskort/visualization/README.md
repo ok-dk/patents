@@ -17,7 +17,6 @@ After that, go to <http://localhost:8000/patent-verdenskort/visualization>.
 To Do
 -----
 - Find out where the hell Afghanistan went
-- Apply `.interpolate(d3.interpolateHcl)` to `color()` without bugs
 - Include working threshold legend
 - Tooltip
 - Responsive layout

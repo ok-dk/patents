@@ -3,7 +3,9 @@ var countryValue = "Country Name",
     dataValue = "2012";
 
 var color = d3.scale.linear()
-    .range(["#d7191c", "#2b83ba"]);
+    .range(["#d7191c", "#2b83ba"])
+    .clamp(true) // Renders values outside domain, such as log(0) = -infinity
+    .interpolate(d3.interpolateHcl);
 
 var projection = d3.geo.kavrayskiy7()
     // via https://github.com/d3/d3-geo-projection/
