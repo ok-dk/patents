@@ -15,6 +15,11 @@ rect {
 
 .counties {}
 
+path.country {
+    stroke-width: .5;
+    stroke: #FFF;
+}
+
 path.state:hover {
     fill: pink !important;
     stroke: #000;
