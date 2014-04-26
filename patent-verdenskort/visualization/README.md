@@ -16,7 +16,6 @@ After that, go to <http://localhost:8000/patent-verdenskort/visualization>.
 
 To Do
 -----
-- Include a license
 - Include working threshold legend
 - Tooltip
 - Responsive layout
