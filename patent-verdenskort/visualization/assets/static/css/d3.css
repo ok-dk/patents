@@ -15,21 +15,16 @@ rect {
 
 .counties {}
 
-path.country {
+path.country,
+path.state {
     stroke-width: .5;
     stroke: #FFF;
 }
 
+path.country:hover,
 path.state:hover {
     fill: pink !important;
     stroke: #000;
-    stroke-width: 1.5px;
-}
-
-path.country:hover {
-    fill: pink !important;
-    stroke: #000;
-    stroke-width: .5px;
 }
 
 /** State chart threshold BEGIN */
