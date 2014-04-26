@@ -24,7 +24,6 @@ path.state {
 path.country:hover,
 path.state:hover {
     fill: pink !important;
-    stroke: #000;
 }
 
 /** State chart threshold BEGIN */
