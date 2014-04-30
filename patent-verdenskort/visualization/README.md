@@ -16,6 +16,7 @@ After that, go to <http://localhost:8000/patent-verdenskort/visualization>.
 
 To Do
 -----
+- Error-catching for unparsed countries
 - Use TopoJSON instead
 - Include working threshold legend
 - Tooltip
